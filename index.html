@@ -1,0 +1,107 @@
+<!DOCTYPE html5>
+<html>
+<head>
+	<title>Tiny Blog - Suggestion by Mike Macfadden</title>
+	<style>
+		@import url(http://fonts.googleapis.com/css?family=PT+Mono);
+		body{
+			background:#121212;
+		}
+		#wrapper{
+			width:100%;
+			height:100%;
+			position:fixed;
+			top:0;
+			left:0;
+		}
+		#container{
+			width:960px;
+			height:650px;
+			position:absolute;
+			top:0;
+			left:50%;
+			margin-left:-480px;
+		}
+		textarea{
+			width:650px;
+			background:none repeat scroll 0 0 transparent;
+			resize:none;
+			font-family:font-family: 'PT Mono', sans-serif, tahoma;
+			border:1px solid #ffffff;
+			color:#FFB800;
+			text-shadow: 1px 1px #000000;
+			-webkit-border-radius: 7px;
+			-moz-border-radius: 7px;
+			border-radius: 7px;
+			padding:5px;
+		}
+		#title{
+			height:50px;
+			margin:50px 145px 0;
+			position:relative;
+			font-size:2.5em;
+			font-weight:bold;
+		}
+		#textarea{
+			height:450px;
+			margin:50px 145px;
+			position:relative;
+			font-size:1.5em;
+			font-weight:bold;
+		}
+		.blurred {
+			-webkit-filter: blur(12px);
+			-moz-filter: blur(12px);
+			-o-filter: blur(12px);
+			-ms-filter: blur(12px);
+		}
+		#footer{
+			width:650px;
+			height:100px;
+			margin:20px auto;
+			text-align:center;
+			color:#FFFFFF;
+			font-family: 'PT Mono', sans-serif, tahoma;
+		}
+	</style>
+	<script>
+		if(navigator.webkitGetUserMedia!=null) {     
+			var options = {         
+				video:true,         
+				audio:false     
+			};          
+			//request webcam access     
+			navigator.webkitGetUserMedia(options,         
+				function(stream) {             
+					//get the video tag             
+					var video = document.querySelector('video');             
+					//turn the stream into a magic URL             
+					video.src = window.webkitURL.createObjectURL(stream);         
+				},         
+				function(e) {             
+					console.log("error happened");         
+				}     
+			); 
+		} 
+	</script>
+</head>
+<body>
+	<div id="wrapper">
+		<video height="100%" width="100%" autoplay class="blurred">
+			<source src="webkitURL.createObjectURL()">
+		</video> 
+		
+		<!--<video width="960" height="720" controls>
+			<source src="play.mp4" type="video/mp4">
+		</video>-->
+	</div>
+	<<div id="container">
+		<textarea id="title"></textarea>
+		<textarea id="textarea"></textarea>
+		<!--<div id="footer">
+			<p>Find me on Twitter @mjmacfadden</p>
+		</div>-->
+	</div>
+	
+</body>
+</html>
